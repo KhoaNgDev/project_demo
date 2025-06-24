@@ -1,0 +1,35 @@
+📚 Composition API là gì?
+Composition API là cách viết code mới trong Vue 3, dùng để tạo và quản lý component.
+Nó là cách viết hiện đại hơn so với kiểu cũ gọi là Options API.
+
+🤔 Vì sao cần Composition API?
+Trong Options API, bạn phải chia code ra nhiều phần nhỏ như: data, methods, computed, watch,...
+
+Khi logic phức tạp (ví dụ xử lý giỏ hàng, form, v.v...), code sẽ bị rối, vì một chức năng bị tách ra nhiều chỗ.
+
+👉 Composition API giúp gom tất cả logic liên quan vào cùng một chỗ, viết bằng hàm → dễ hiểu, dễ tái sử dụng.
+
+✅ Lợi ích chính của Composition API
+1. 🧹 Code gọn và rõ ràng hơn
+Bạn có thể nhóm các phần xử lý liên quan với nhau.
+
+Giúp người mới vào dự án dễ đọc và hiểu nhanh.
+
+2. 🔁 Tái sử dụng dễ hơn
+Có thể tạo hàm dùng lại (gọi là composable functions hoặc hooks).
+
+Dùng được ở nhiều component khác nhau mà không cần copy-paste.
+
+3. 🧪 Dễ kiểm thử (test)
+Vì logic nằm trong các hàm, bạn có thể test riêng từng hàm.
+
+4. 📘 Hỗ trợ tốt TypeScript
+Vue sẽ hiểu rõ kiểu dữ liệu bạn dùng (int, string, array...)
+
+Giúp phát hiện lỗi khi viết code (trước khi chạy).
+
+5. ⚙️ Linh hoạt và mạnh mẽ hơn
+Có thể xử lý các tình huống phức tạp dễ hơn.
+
+Sử dụng các hàm đặc biệt như: ref, reactive, computed, watch, onMounted, v.v.
+
