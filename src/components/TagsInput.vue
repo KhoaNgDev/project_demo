@@ -23,6 +23,17 @@ export default {
     newTag: "",
   }),
 
+  // watch dùng để theo dõi sự thay đổi của một biến (trong data hoặc computed).
+  // Mỗi khi newTag thay đổi (tức là bạn đang gõ trong <input>), hàm newTag(newVal) sẽ chạy.
+  watch: {
+    newTag(newVal) {
+      if (newVal.indexOf(",") > -1) {
+        this.newTag = this.newTag.slice(0, -1);
+        this.addNewTag();
+      }
+    },
+  },
+
   // Tự động cập mỗi khi tags hoặc newTag thay đổi
   // Trả về true nếu newTag đã tồn tại trong tags <=> false
   // Dùng để tránh thêm trùng tag và đổi giao diện input khi bị trùng
