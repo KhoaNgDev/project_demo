@@ -17,11 +17,11 @@ export default {
 </script>
 
 <template>
-<h1>Your favorite frameworks</h1>More actions
+<h1>Your favorite frameworks</h1>
   <div>{{ jsFrameworks }}</div>
   <tags-input :selected-tags="jsFrameworks" @change="handleChange" />
 
-  <div>{{ backendFrameworks }}</div>More actions
+  <div>{{ backendFrameworks }}</div>
   <tags-input
     :selected-tags="backendFrameworks"
     @change="backendFrameworks = [...$event]"
