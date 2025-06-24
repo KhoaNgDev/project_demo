@@ -2,14 +2,30 @@
 import TagsInput from "./components/TagsInput.vue";
 
 export default {
-  components: {
-    // TagsInput,
+  data: () => ({
+    jsFrameworks: ["react.js", "vue.js", "angular"],
+    backendFrameworks: [],
+  }),
+  //mounted() là lifecycle hook trong Vue.
+  //Hàm này sẽ chạy sau khi component được gắn vào DOM (mounted).
+  methods: {
+    handleChange(tags) {
+      this.jsFrameworks = [...tags];
+    },
   },
 };
 </script>
 
 <template>
-<tags-input/>
+<h1>Your favorite frameworks</h1>More actions
+  <div>{{ jsFrameworks }}</div>
+  <tags-input :selected-tags="jsFrameworks" @change="handleChange" />
+
+  <div>{{ backendFrameworks }}</div>More actions
+  <tags-input
+    :selected-tags="backendFrameworks"
+    @change="backendFrameworks = [...$event]"
+  />
 </template>
 
 <style scoped>

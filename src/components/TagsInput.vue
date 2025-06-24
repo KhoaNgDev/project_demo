@@ -22,10 +22,18 @@
 <script>
 export default {
   //Nơi lưu trữ trạng thái State
-  data: () => ({
-    tags: ["vue", "react", "angular"],
-    newTag: "",
-  }),
+  data() {
+    return {
+      tags: [...this.selectedTags],
+      newTag: "",
+    };
+  },
+  props: {
+    selectedTags: {
+      type: Array,
+      default: () => [],
+    },
+  },
 
   // watch dùng để theo dõi sự thay đổi của một biến (trong data hoặc computed).
   // Mỗi khi newTag thay đổi (tức là bạn đang gõ trong <input>), hàm newTag(newVal) sẽ chạy.
@@ -46,15 +54,18 @@ export default {
       return this.tags.includes(this.newTag);
     },
   },
+    emits: ["change"],
   methods: {
     addNewTag() {
       if (this.newTag && !this.isTagExists) {
         this.tags.push(this.newTag);
         this.newTag = "";
+          this.$emit("change", this.tags);
       }
     },
     removeTag(index) {
       this.tags.splice(index, 1);
+       this.$emit("change", this.tags);
     },
     removeLastTag() {
       if (this.newTag.length === 0) {
