@@ -1,14 +1,11 @@
 <script>
+import { ref } from "vue";
 export default {
-  data() {
-    return {
-      count: 0
-    }
-  },
-  methods: {
-    increase() {
-      this.count++
-    }
+  setup() {
+    const count = ref(0)
+    const increase = () => count.value++
+
+    return { count, increase }
   }
 }
 </script>
