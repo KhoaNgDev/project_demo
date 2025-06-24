@@ -1,5 +1,4 @@
 <script>
-import TagsInput from "./components/TagsInput.vue";
 
 export default {
   data: () => ({
